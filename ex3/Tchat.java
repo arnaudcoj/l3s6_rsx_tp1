@@ -24,8 +24,6 @@ public class Tchat {
 	Thread trReceive = new Thread(receive);
 	Thread trSend = new Thread(send);
 
-	System.out.println("Bienvenue dans ce Tchat !");
-	System.out.print("> ");
 	
 	trReceive.start();
 	trSend.start();
@@ -36,6 +34,9 @@ public class Tchat {
 
     public static void main (String[] args) throws Exception {
 	String nickname;
+	
+	System.out.println("Bienvenue dans ce Tchat !");
+	System.out.print("> ");
 	if(args.length >= 1 && !args[0].equals(""))
 	    nickname = args[0];
 	else
