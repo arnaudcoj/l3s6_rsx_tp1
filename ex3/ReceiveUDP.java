@@ -1,3 +1,10 @@
+/**
+ *  TP1 Réseaux - UDP et Multicast
+ *  Exercice 3
+ *  Matthieu Caron
+ *  Arnaud Cojez
+ */
+
 import java.net.MulticastSocket;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
@@ -5,18 +12,33 @@ import java.lang.String;
 import java.lang.Runnable;
 import java.io.IOException;
 
+/**
+ * Class used to receive a message
+ * It should be used as a thread
+ */
 public class ReceiveUDP implements Runnable{
 
+    //Fields
     protected MulticastSocket socket;
     protected int port;
     protected InetAddress dst;
-    
+
+    //Methods
+
+    /**
+     * Constructor for this class
+     * @param socket the socket we want to read into
+     */
     public ReceiveUDP(MulticastSocket socket) throws Exception {
 	this.port = 7654;
 	this.dst = InetAddress.getByName("224.0.0.1");
 	this.socket = socket;
     }
 
+    @Override
+    /**
+     * Receive a message from the socket while the socket is opened
+     */
     public void run () {
 	DatagramPacket packet; 
 	byte[] msg;

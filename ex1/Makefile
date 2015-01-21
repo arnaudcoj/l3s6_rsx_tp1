@@ -1,12 +1,14 @@
 JC = javac                           
-EXEC = ReceiveUDP SendUDP
 
-all: $(EXEC)
+all: ReceiveUDP.class SendUDP.class
 
-%: %.java
+ReceiveUDP.class: ReceiveUDP.java
 	$(JC) $^
 
-test: ReceiveUDP SendUDP
+SendUDP.class: SendUDP.java
+	$(JC) $^
+
+test: ReceiveUDP.class SendUDP.class
 	java ReceiveUDP 1500 &
 	java SendUDP localhost 1500 "test réussi"
 

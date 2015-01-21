@@ -1,13 +1,30 @@
+/**
+ *  TP1 Réseaux - UDP et Multicast
+ *  Exercice 3
+ *  Matthieu Caron
+ *  Arnaud Cojez
+ */
+
 import java.net.MulticastSocket;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.lang.String;
 
+/**
+ * The main class of the tchat program
+ */
 public class Tchat {
 
+    //Fields
     protected MulticastSocket socket;
     protected String nickname;
-    
+
+    //Methods
+
+    /**
+     * Constructor of this class
+     * @param nickname the name we want the message to be sent with
+     */
     public Tchat(String nickname) throws Exception{
 	this.nickname = nickname;
 	
@@ -18,6 +35,11 @@ public class Tchat {
 	socket.joinGroup(dst);
     }
 
+    /**
+     * Runs the program.
+     * Creates a thread for receiving the messages and another to send them.
+     * Closes the socket when terminated
+     */
     public void run() throws Exception {
 	ReceiveUDP receive = new ReceiveUDP(this.socket);
 	SendUDP send = new SendUDP(this.socket, this.nickname);
@@ -32,6 +54,9 @@ public class Tchat {
 	this.socket.close();
     }
 
+    /**
+     * Runs the tchat program in a shell
+     */
     public static void main (String[] args) throws Exception {
 	String nickname;
 	

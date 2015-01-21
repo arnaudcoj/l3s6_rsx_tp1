@@ -1,8 +1,18 @@
+/**
+ *  TP1 Réseaux - UDP et Multicast
+ *  Exercice 2
+ *  Matthieu Caron
+ *  Arnaud Cojez
+ */
+
 import java.net.MulticastSocket;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.lang.String;
 
+/**
+ * Class used to send a message
+ */
 public class SendUDP {
     
     public static void main (String[] args) throws Exception {

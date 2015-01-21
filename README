@@ -1,0 +1,14 @@
+Matthieu Caron
+Arnaud Cojez
+
+Chaque exercice est placé dans le dossier lui correspondant. Le programme de tchat se trouvant dans le doissier ex3
+
+pour le lancer, compilez à l'aide du Makefile et entrez la commande
+     java Tchat <votre_pseudo>
+
+Vous pouvez à présent écrire votre message et l'envoyer avec Entrée
+
+pour quitter le programme, entrez
+     /part
+
+Merci et bonne correction !
